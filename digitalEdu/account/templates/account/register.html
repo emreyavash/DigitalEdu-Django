@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="inner-banner">
+    <section class="w3l-breadcrumb">
+      <div class="container">
+        <ul class="breadcrumbs-custom-path">
+          <li><a href="{% url 'home' %}">Register</a></li>
+          
+        </ul>
+      </div>
+    </section>
+  </div>
+<div class="content-1 py-5">
+    <div class="container py-md-5">
+        <div class="row content-1-grids">
+            <div class="col-lg-4 content-1-left forms-25-info">
+                <div class="header-title">
+                    <span class="sub-title">Register</span>
+                    <h3 class="hny-title">Time To Register</h3>
+                 
+                </div>
+            </div>
+            
+            <div class="col-lg-8 content-1-right pl-lg-5 mt-lg-0 mt-4" style="color:#F45B04">
+             
+                <form method="POST">
+                    {% csrf_token %}
+
+                    {% if error %}
+                        <div class="alert alert-danger">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Enter Name" >
+                                </div>
+                                <div class="col-6">
+                                    <label for="surname" class="form-label">Surname</label>
+                                    <input type="text" class="form-control" name="surname" placeholder="Enter Surname">
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Enter Email" >
+                                </div>
+                                <div class="col-6">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="birthday" class="form-label">Date Of Birth</label>
+                                    <input type="date" class="form-control" name="birthday" data-date-format="DD-MM-YYYY" >
+                                </div>
+                                <div class="col-6">
+                                    <label for="gender" class="form-label">Gender</label>
+                                    <select class="form-control" id="gender" onchange="changeValue(this.value)">
+                                        <option >Gender</option>
+                                        <option value="1" >Male</option>
+                                        <option value="0">Female</option>
+                                    </select>
+                                    <input type="text" value="1" id="genderInput" name="genderInput" hidden>
+                                <script>
+                                    function changeValue(i){
+                                        
+                                        document.getElementById('genderInput').value = i
+                                        
+                                    }
+                                </script>                                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Enter Password" >
+                                </div>
+                                <div class="col-6">
+                                    <label for="repassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="repassword" placeholder="Enter password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-5 text-center">
+                            <button class="btn btn-primary" color="background-color:#F45B04" type="submit">Register</button>
+                        </div>
+                    </div>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

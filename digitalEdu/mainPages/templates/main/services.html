@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Courses{% endblock %}
+
+{% block content %}
+  <div class="inner-banner">
+    <section class="w3l-breadcrumb">
+      <div class="container">
+        <ul class="breadcrumbs-custom-path">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span> Courses</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <!-- about page about section -->
+  <!--/courses-->
+  <section class="w3l-blogpost-content w3l-courses py-5">
+    <div class="container py-md-5">
+      <div class="header-title mb-md-5 mb-4">
+        <span class="sub-title">Top Courses</span>
+        <h3 class="hny-title text-left"> Popular Courses</h3>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-12 col-md-2">
+          {% include "main/partials/category.html" %}
+        </div>
+        <div class="col-lg-12 col-md-10"></div>
+          <div class="row">
+            {% for course in courses %}
+              {% include "main/partials/course.html" %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      
+      <div class="course-button mt-lg-4 text-center">
+      <a href="{% url 'contact' %}" class="btn btn-style btn-primary pt-lg-3 mt-sm-5 mt-4">Start Today <span
+          class="fa fa-chevron-right ml-2" aria-hidden="true"></span></a>
+        </div>
+    </div>
+  </section>
+  <!--//courses-->
+{% endblock %}

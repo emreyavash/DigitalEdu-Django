@@ -1,0 +1,27 @@
+{% load static %}
+
+  <div class="col-lg-4 col-md-6 mt-5">
+    <div class="card">
+      <div class="card-header p-0 position-relative">
+
+        <a href="#">
+          <img class="card-img-bottom d-block radius-image-full" src="{{ course.image.url }}" alt="Card image cap">
+        </a>
+      </div>
+      <div class="card-body blog-details">
+        <p class="price-review">${{course.coursePrice}}.00</p>
+        <a href="{% url 'courseDetail' course.slug %}" class="blog-desc mt-2">{{course.courseName|title}}
+        </a>
+        <div class="course-meta mt-1">
+          <div class="meta-item course-lesson">
+            <span class="fa fa-file-code-o"></span>
+            <span class="meta-value"> {{course.lessonNumber}} Lessons </span>
+          </div>
+          <div class="meta-item course-students">
+            <span class="fa fa-user-o"></span>
+            <span class="meta-value"> 40 Students </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

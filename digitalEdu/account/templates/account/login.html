@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="inner-banner">
+    <section class="w3l-breadcrumb">
+      <div class="container">
+        <ul class="breadcrumbs-custom-path">
+          <li><a href="{% url 'home' %}">Login</a></li>
+          
+        </ul>
+      </div>
+    </section>
+  </div>
+<div class="content-1 py-5">
+    <div class="container py-md-5">
+        <div class="row content-1-grids">
+            <div class="col-lg-4 content-1-left forms-25-info">
+                <div class="header-title">
+                    <span class="sub-title">Login</span>
+                    <h3 class="hny-title">Here is Login</h3>
+                 
+                </div>
+            </div>
+            
+            <div class="col-lg-8 content-1-right pl-lg-5 mt-lg-0 mt-4" style="color:#F45B04">
+             
+                <form method="POST">
+                    {% csrf_token %}
+
+                    {% if error %}
+                        <div class="alert alert-danger">
+                            {{ error }}
+                            
+                        </div>
+                    {% endif %}
+                    
+                    <div class="row">
+                        
+                        <div class="col-12 mt-3">
+                            
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" class="form-control" name="email" placeholder="Enter Email" >
+                               
+                        </div>
+                        <div class="col-12 mt-3">  
+                          <label for="password" class="form-label">Password</label>
+                          <input type="password" class="form-control" name="password" placeholder="Enter Password" >
+                        </div>
+                        <div class="col-12 mt-3">  
+                          <a href="{% url 'forgetPasswordEmail' %}">Forget Password ? </a>
+                        </div>
+                        <div class="col-12 mt-5 text-center">
+                            <button class="btn btn-primary" color="background-color:#F45B04" type="submit">Login</button>
+                        </div>
+                    </div>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
